@@ -7,7 +7,9 @@ namespace Sweesh.Core.Models
     {
         [BsonId]
         public string Id { get; set; }
+        [BsonElement("AppName")]
         public string AppName { get; set; }
+        [BsonElement("Files")]
         public File[] Files { get; set; }
 
         public App()
