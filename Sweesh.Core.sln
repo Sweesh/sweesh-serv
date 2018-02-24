@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweesh.Core.Web", "Sweesh.Core.Web\Sweesh.Core.Web.csproj", "{F02DF75C-3C6C-4B91-AF8E-9CD51E658F0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F02DF75C-3C6C-4B91-AF8E-9CD51E658F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F02DF75C-3C6C-4B91-AF8E-9CD51E658F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F02DF75C-3C6C-4B91-AF8E-9CD51E658F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F02DF75C-3C6C-4B91-AF8E-9CD51E658F0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
