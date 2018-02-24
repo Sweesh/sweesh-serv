@@ -1,33 +1,15 @@
-﻿using System;
-using System.Threading.Tasks;
-using MongoDB.Bson.Serialization;
+﻿using System.Threading.Tasks;
 using MongoDB.Driver;
-using Sweesh.Core.Models;
 
 namespace Sweesh.Core.Adapters
 {
-    public class ConfigAdapter
+    using Abstract;
+    using Configuration.Models;
+    using Models;
+
+    public class ConfigAdapter : BaseAdapter<Config>, IConfigAdapter
     {
-        internal IMongoCollection<Config> collection;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:Sweesh.Core.Adapters.ConfigAdapter"/> class.
-        /// </summary>
-        public ConfigAdapter()
-        {
-            // Should be put in application initialization, BEFORE client created
-            BsonClassMap.RegisterClassMap<Config>();
-
-            // Call to be replaced with a DI access of a mongo client
-            var Client = new MongoClient("barngang.co:27017");
-
-            // Could also be converted with DI access
-            var db = Client.GetDatabase("sweesh");
-
-            // Could also be converted with DI access
-            collection = db.GetCollection<Config>("config");
-        }
-
+        public ConfigAdapter(MongoConnection connection) : base(connection) { }
 
         /// <summary>
         /// Update the specified config, only updating the AppId and AppName
@@ -43,7 +25,7 @@ namespace Sweesh.Core.Adapters
             var update = updateBuilder.Set(con => con.AppId, config.AppId)
                                       .Set(con => con.AppName, config.AppName);
 
-            return collection.UpdateOneAsync(filter, update);
+            return Collection.UpdateOneAsync(filter, update);
         }
 
         /// <summary>
@@ -52,12 +34,12 @@ namespace Sweesh.Core.Adapters
         /// <returns>The config item.</returns>
         /// <param name="item">Item.</param>
         /// <param name="configId">Config identifier.</param>
-        public Task AddConfigItem(ConfigItem item, string configId) 
+        public Task AddConfigItem(ConfigItem item, string configId)
         {
             var filter = Builders<Config>.Filter.Eq(conf => conf.Id, configId);
             var update = Builders<Config>.Update.AddToSet(confItems => confItems.Configs, item);
 
-            return collection.UpdateOneAsync(filter, update);
+            return Collection.UpdateOneAsync(filter, update);
         }
 
         /// <summary>
@@ -65,10 +47,12 @@ namespace Sweesh.Core.Adapters
         /// </summary>
         /// <returns>The by app identifier.</returns>
         /// <param name="config">Config.</param>
-        public Task<Config> GetByAppId(Config config) {
+        public async Task<Config> GetByAppId(Config config)
+        {
             var filter = Builders<Config>.Filter.Eq(conf => conf.AppId, config.AppId);
 
-            return collection.Find(filter).FirstOrDefaultAsync();
+            var results = await Collection.FindAsync(filter);
+            return await results.FirstOrDefaultAsync();
         }
 
         /// <summary>
@@ -76,10 +60,11 @@ namespace Sweesh.Core.Adapters
         /// </summary>
         /// <returns>The by app name.</returns>
         /// <param name="config">Config.</param>
-        public Task GetByAppName(Config config) {
+        public Task GetByAppName(Config config)
+        {
             var filter = Builders<Config>.Filter.Eq(conf => conf.AppName, config.AppName);
 
-            return collection.Find(filter).FirstOrDefaultAsync();
+            return Collection.Find(filter).FirstOrDefaultAsync();
         }
     }
 }

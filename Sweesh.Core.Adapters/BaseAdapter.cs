@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using MongoDB.Bson.Serialization;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
@@ -20,13 +21,14 @@ namespace Sweesh.Core.Adapters
 
         public MongoClient Client => client ?? (client = CreateClient());
         public IMongoDatabase Database => database ?? (database = client.GetDatabase(connection.Database));
-        public IMongoCollection<T> Collection => Database.GetCollection<T>(CollectionName);
+        public IMongoCollection<T> Collection => collection ?? (collection = Database.GetCollection<T>(CollectionName));
         public MongoConnection Connection => connection;
         public string CollectionName => collectionName ?? (collectionName = typeof(T).Name.ToLower());
 
         public BaseAdapter(MongoConnection connection)
         {
             this.connection = connection;
+            BsonClassMap.RegisterClassMap<T>();
         }
 
         private MongoClient CreateClient()
