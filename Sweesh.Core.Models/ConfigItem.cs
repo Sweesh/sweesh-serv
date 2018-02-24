@@ -5,7 +5,7 @@ namespace Sweesh.Core.Models
     {
         public string ConfigName { get; set; }
         public Byte[] Raw { get; set; }
-        public string destination { get; set; }
+        public string Destination { get; set; }
 
         public ConfigItem()
         {
