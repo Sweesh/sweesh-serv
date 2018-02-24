@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sweesh.Core.Configuration\Sweesh.Core.Configuration.csproj" />
+    <ProjectReference Include="..\Sweesh.Core.Adapters\Sweesh.Core.Adapters.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="appsettings.Development.json" />

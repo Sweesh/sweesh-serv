@@ -7,4 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Sweesh.Core.Models\Sweesh.Core.Models.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Adapters\" />
+  </ItemGroup>
 </Project>

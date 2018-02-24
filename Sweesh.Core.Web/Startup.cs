@@ -1,18 +1,19 @@
-﻿using System;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using StructureMap;
+using Swashbuckle.AspNetCore.Swagger;
+using System;
 
 namespace Sweesh.Core.Web
 {
+    using Adapters;
+    using Configuration;
     using Configuration.Jwt;
-    using Microsoft.Extensions.FileProviders;
-    using StructureMap;
-    using Swashbuckle.AspNetCore.Swagger;
-    using Sweesh.Core.Configuration;
 
     public class Startup
     {
@@ -72,6 +73,7 @@ namespace Sweesh.Core.Web
             });
 
             var sm = new Setup(Configuration)
+                .LoadAdapters()
                 .Build();
             //Populate our services into structure map
             sm.Populate(services);
