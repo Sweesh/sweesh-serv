@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Sweesh.Core.Models
 {
-    public class User
+    public class User : IModel
     {
         [BsonId]
         public string Id { get; set; }

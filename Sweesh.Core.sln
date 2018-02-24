@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweesh.Core.Adapters", "Swe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweesh.Core.Models", "Sweesh.Core.Models\Sweesh.Core.Models.csproj", "{5B5C4721-7113-4C0C-85AD-0EB63A64793A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweesh.Core.Abstract", "Sweesh.Core.Abstract\Sweesh.Core.Abstract.csproj", "{949B41D4-4A30-463C-A5D0-995A817CD753}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +36,9 @@ Global
 		{5B5C4721-7113-4C0C-85AD-0EB63A64793A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B5C4721-7113-4C0C-85AD-0EB63A64793A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B5C4721-7113-4C0C-85AD-0EB63A64793A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{949B41D4-4A30-463C-A5D0-995A817CD753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{949B41D4-4A30-463C-A5D0-995A817CD753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{949B41D4-4A30-463C-A5D0-995A817CD753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{949B41D4-4A30-463C-A5D0-995A817CD753}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
