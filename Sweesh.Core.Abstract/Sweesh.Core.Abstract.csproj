@@ -5,8 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sweesh.Core.Abstract\Sweesh.Core.Abstract.csproj" />
     <ProjectReference Include="..\Sweesh.Core.Models\Sweesh.Core.Models.csproj" />
-    <ProjectReference Include="..\Sweesh.Core.Configuration\Sweesh.Core.Configuration.csproj" />
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 
 namespace Sweesh.Core.Models
 {
-    public class Config
+    public class Config : IModel
     {
         public string Id { get; set; }
         public string UserId { get; set; }

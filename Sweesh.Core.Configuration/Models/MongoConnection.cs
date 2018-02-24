@@ -10,6 +10,7 @@ namespace Sweesh.Core.Configuration.Models
         public int Port => int.Parse(config[BaseConfig + "Port"]);
         public string User => config[BaseConfig + "User"];
         public string Pass => config[BaseConfig + "Pass"];
+        public string Database => config[BaseConfig + "Database"];
 
         private IConfiguration config;
         public MongoConnection(IConfiguration config)
