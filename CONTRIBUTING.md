@@ -1,24 +1,24 @@
 # Contributing
 
-When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. 
+When contributing to Sweesh, please first discuss the change you wish to make via issue before making a change so that multiple contributors do not attempt to work on the same new feature concurrently without knowledge of the other. 
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
 ## Development Process
 
-All new features, bug fixes, or other contributions shall be made on a branch off of the "dev" branch. These changes can be then merged into dev following the pull request guidelines as stated below. The dev branch will be merged into master for major releases, but all incremental development will be performed on dev. 
+All new features, bug fixes, and other contributions shall be made on a branch off of the "dev" branch. These changes can be then merged into dev following the pull request guidelines below. The dev branch will be merged into master for major releases, but all incremental development will be performed on dev. All code must have significant unit test coverage, and all tests must be passing in order to merge a feature branch back into dev. All code must also have meaningful comments in the code to document the important aspects of the implementation of the new feature.
 
 
 ## Pull Request Process
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a 
    build.
-2. Update the README.md with details of changes to the interface, this includes new environment 
+2. All status checks (unit tests, linter, etc.) for the project must be successful.
+3. Update the README.md with details of changes to the interface, this includes new environment 
    variables, exposed ports, useful file locations and container parameters.
-3. Increase the version numbers in any examples files and the README.md to the new version that this
+4. Increase the version numbers in any examples files and the README.md to the new version that this
    Pull Request would represent.
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
+5. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
    do not have permission to do that, you may request the second reviewer to merge it for you.
 
 ## Code of Conduct
@@ -51,6 +51,7 @@ advances
 * Public or private harassment
 * Publishing others' private information, such as a physical or electronic
   address, without explicit permission
+* Insulting/demeaning comments regarding the level of skill of any contributor
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
