@@ -1,7 +1,14 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweesh.Core.Web", "Sweesh.Core.Web\Sweesh.Core.Web.csproj", "{F02DF75C-3C6C-4B91-AF8E-9CD51E658F0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweesh.Core.Configuration", "Sweesh.Core.Configuration\Sweesh.Core.Configuration.csproj", "{D9497EE7-4BD3-4B1E-9745-9165023F1A3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweesh.Core.Adapters", "Sweesh.Core.Adapters\Sweesh.Core.Adapters.csproj", "{D7AE171B-5A72-496C-A62B-7940FB607E78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweesh.Core.Models", "Sweesh.Core.Models\Sweesh.Core.Models.csproj", "{5B5C4721-7113-4C0C-85AD-0EB63A64793A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sweesh.Core.Abstract", "Sweesh.Core.Abstract\Sweesh.Core.Abstract.csproj", "{9E0F7BD3-0ED5-4E59-8819-B78C01458627}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +20,25 @@ Global
 		{F02DF75C-3C6C-4B91-AF8E-9CD51E658F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F02DF75C-3C6C-4B91-AF8E-9CD51E658F0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F02DF75C-3C6C-4B91-AF8E-9CD51E658F0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9497EE7-4BD3-4B1E-9745-9165023F1A3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9497EE7-4BD3-4B1E-9745-9165023F1A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9497EE7-4BD3-4B1E-9745-9165023F1A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9497EE7-4BD3-4B1E-9745-9165023F1A3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D86C6193-38BC-4F02-8AB5-C7EE3A6FE0C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86C6193-38BC-4F02-8AB5-C7EE3A6FE0C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86C6193-38BC-4F02-8AB5-C7EE3A6FE0C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86C6193-38BC-4F02-8AB5-C7EE3A6FE0C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7AE171B-5A72-496C-A62B-7940FB607E78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7AE171B-5A72-496C-A62B-7940FB607E78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7AE171B-5A72-496C-A62B-7940FB607E78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7AE171B-5A72-496C-A62B-7940FB607E78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B5C4721-7113-4C0C-85AD-0EB63A64793A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B5C4721-7113-4C0C-85AD-0EB63A64793A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B5C4721-7113-4C0C-85AD-0EB63A64793A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B5C4721-7113-4C0C-85AD-0EB63A64793A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E0F7BD3-0ED5-4E59-8819-B78C01458627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0F7BD3-0ED5-4E59-8819-B78C01458627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0F7BD3-0ED5-4E59-8819-B78C01458627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0F7BD3-0ED5-4E59-8819-B78C01458627}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
