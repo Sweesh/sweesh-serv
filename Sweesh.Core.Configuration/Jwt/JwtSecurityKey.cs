@@ -1,10 +1,13 @@
-﻿using System;
+﻿using System.Text;
+using Microsoft.IdentityModel.Tokens;
+
 namespace Sweesh.Core.Configuration.Jwt
 {
     public class JwtSecurityKey
     {
-        public JwtSecurityKey()
+        public static SymmetricSecurityKey Create(string secret)
         {
+            return new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret));
         }
     }
 }
