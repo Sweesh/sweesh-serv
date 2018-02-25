@@ -14,6 +14,8 @@ namespace Sweesh.Core.Web
     using Adapters;
     using Configuration;
     using Configuration.Jwt;
+    using Configuration.Models;
+    using Managers;
 
     public class Startup
     {
@@ -74,6 +76,10 @@ namespace Sweesh.Core.Web
 
             var sm = new Setup(Configuration)
                 .LoadAdapters()
+                .LoadManagers()
+                .Configure(c => {
+                    c.For<MongoConnection>().Use<MongoConnection>();
+                })
                 .Build();
             //Populate our services into structure map
             sm.Populate(services);
@@ -83,6 +89,8 @@ namespace Sweesh.Core.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseAuthentication();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
