@@ -9,6 +9,7 @@ namespace Sweesh.Core.Abstract
         Task Update(Config config);
         Task AddConfigItem(ConfigItem item, string configId);
         Task<Config> GetByAppId(Config config);
-        Task GetByAppName(Config config);
+        Task<Config> GetByAppName(Config config);
+        Task<Config> GetByAppName(string appname, string userid);
     }
 }

@@ -94,13 +94,15 @@ namespace Sweesh.Core.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sweeh.Api");
-                });
-
-                app.UseSwagger();
             }
+
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Sweesh.Api");
+            });
+
+            app.UseSwagger();
 
             //Setup default routes
             app.UseMvcWithDefaultRoute();

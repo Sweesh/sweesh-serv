@@ -1,15 +1,21 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MongoDB.Driver;
-using Sweesh.Core.Configuration.Models;
-using Sweesh.Core.Models;
 
 namespace Sweesh.Core.Adapters
 {
-    public class AppAdapter : BaseAdapter<App>
+    using Abstract;
+    using Configuration.Models;
+    using Models;
+
+    public class AppAdapter : BaseAdapter<App>, IAppAdapter
     {
         public AppAdapter(MongoConnection connection) : base(connection)
         {
+        }
+
+        public async Task<App> GetByName(string appname)
+        {
+            return (await Collection.FindAsync(t => t.AppName.ToLower() == appname.ToLower())).FirstOrDefault();
         }
 
         public Task AddFile(File file, string appId) 
