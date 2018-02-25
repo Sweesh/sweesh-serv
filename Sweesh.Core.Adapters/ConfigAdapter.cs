@@ -60,11 +60,21 @@ namespace Sweesh.Core.Adapters
         /// </summary>
         /// <returns>The by app name.</returns>
         /// <param name="config">Config.</param>
-        public Task GetByAppName(Config config)
+        public Task<Config> GetByAppName(Config config)
         {
-            var filter = Builders<Config>.Filter.Eq(conf => conf.AppName, config.AppName);
+            var filter = Builders<Config>.Filter.Eq(conf => conf.AppName.ToLower(), config.AppName.ToLower());
 
             return Collection.Find(filter).FirstOrDefaultAsync();
+        }
+
+        /// <summary>
+        /// Gets the app by the name
+        /// </summary>
+        /// <returns>The name of the app</returns>
+        /// <param name="appname">Appname.</param>
+        public async Task<Config> GetByAppName(string appname, string userid)
+        {
+            return (await Collection.FindAsync(t => t.AppName.ToLower() == appname.ToLower() && t.UserId == userid)).FirstOrDefault();
         }
     }
 }

@@ -6,6 +6,8 @@ namespace Sweesh.Core.Abstract
 
     public interface IAppAdapter : IBaseAdapter<App>
     {
-        
+        Task<App> GetByName(string appname);
+        Task AddFile(File file, string appid);
+        Task DeleteFile(File file, string appid);
     }
 }
