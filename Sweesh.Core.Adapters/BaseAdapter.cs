@@ -14,35 +14,34 @@ namespace Sweesh.Core.Adapters
         where T : IModel
     {
         private MongoConnection connection = null;
-        private MongoClient client = null;
-        private IMongoDatabase database = null;
         private IMongoCollection<T> collection = null;
         private string collectionName = null;
 
-        public MongoClient Client => client ?? (client = CreateClient());
-        public IMongoDatabase Database => database ?? (database = client.GetDatabase(connection.Database));
-        public IMongoCollection<T> Collection => collection ?? (collection = Database.GetCollection<T>(CollectionName));
-        public MongoConnection Connection => connection;
+        public IMongoCollection<T> Collection => collection ?? (collection = GetCollection());
         public string CollectionName => collectionName ?? (collectionName = typeof(T).Name.ToLower());
 
         public BaseAdapter(MongoConnection connection)
         {
             this.connection = connection;
-            BsonClassMap.RegisterClassMap<T>();
         }
 
-        private MongoClient CreateClient()
+        private IMongoCollection<T> GetCollection()
         {
-            return new MongoClient(new MongoClientSettings
+            var settings = new MongoClientSettings
             {
-                Server = new MongoServerAddress(connection.Host, connection.Port)
-            });
+                Server = new MongoServerAddress(connection.Host, connection.Port),
+                UseSsl = false
+            };
+
+            var client = new MongoClient(settings);
+            var db = client.GetDatabase(connection.Database);
+            return db.GetCollection<T>(CollectionName);
         }
 
         public async Task<T> Get(string id)
         {
             var results = await Collection.FindAsync(t => t.Id == id);
-            return await results.FirstOrDefaultAsync();
+            return results.FirstOrDefault();
         }
 
         public async Task<IEnumerable<T>> Get()
@@ -54,6 +53,7 @@ namespace Sweesh.Core.Adapters
         public Task Insert(T item)
         {
             return Collection.InsertOneAsync(item);
+
         }
 
         public Task Insert(params T[] item)
