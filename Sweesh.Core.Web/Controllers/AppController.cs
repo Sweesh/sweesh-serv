@@ -30,7 +30,7 @@ namespace Sweesh.Core.Web.Controllers
         }
 
         [HttpPost, Authorize]
-        public async Task<IActionResult> Post(App item)
+        public async Task<IActionResult> Post([FromBody]App item)
         {
             try
             {

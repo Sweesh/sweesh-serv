@@ -1,2 +1,0 @@
-# sweesh-serv
-Sweesh server
